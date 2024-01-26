@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        $unique_words = Import::importWordsFromFile('./csv/texto.txt');
+        $unique_words = Import::importWordsFromFile('./csv/palavras.txt');
         Import::insertIntoDB($unique_words);
 
         // DB::table('user_word')->insert([
