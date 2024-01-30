@@ -28,11 +28,6 @@ Route::get('/lexicon/create', function () {
     return view('lexicon.create');    
 });
 
-Route::get('/words/create', function () {
-    $words = Word::paginate(100);
-    return view('words.index', compact(['words']));    
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

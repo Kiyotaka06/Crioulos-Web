@@ -8,9 +8,11 @@ use Livewire\Component;
 class Insert extends Component
 {
     public $word;
+    public $language_codes = ['pov', 'por'];
 
     protected $rules = [
-        'word' => 'required|unique:words,text',        
+        'word' => 'required|unique:words,text',
+        'language' => 'required|unique:words,language_codes'        
     ];
 
     public function render()
@@ -24,7 +26,7 @@ class Insert extends Component
 
         Word::create([
             'text' => strtolower($this->word),
-            'language_code' => 'por'
+            'language_code' => ($this->language_codes),
         ]);
 
         session()->flash('message', 'Palavra inserida com sucesso.');
