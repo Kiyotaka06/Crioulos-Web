@@ -7,29 +7,45 @@ use Livewire\Component;
 
 class Insert extends Component
 {
-    public $word;
-    public $language_codes = ['pov', 'por'];
-
-    protected $rules = [
-        'word' => 'required|unique:words,text',
-        'language' => 'required|unique:words,language_codes'        
-    ];
+    public $text;
+    public $language_code;
 
     public function render()
-    {        
+    {
         return view('livewire.lexicon.insert');
     }
 
-    public function store() {
+    public function updated($field)
+    {
+        $this->validateOnly($field, [
+            'text' => 'required|unique:words,text,NULL,id,language_code,' . $this->language_code,
+            'language_code' => 'required|unique:words,language_code,NULL,id,text,' . $this->text,
+        ]);
+    }
 
-        $this->validate();
-
-        Word::create([
-            'text' => strtolower($this->word),
-            'language_code' => ($this->language_codes),
+    public function submit()
+    {
+        $this->validate([
+            'text' => 'required|unique:words,text,NULL,id,language_code,' . $this->language_code,
+            'language_code' => 'required|unique:words,language_code,NULL,id,text,' . $this->text,
         ]);
 
-        session()->flash('message', 'Palavra inserida com sucesso.');
+        $wordExists = Word::where('text', $this->text)
+            ->where('language_code', $this->language_code)
+            ->exists();
 
-    }    
+        if (!$wordExists) {
+            Word::create([
+                'text' => $this->text,
+                'language_code' => $this->language_code,
+                'user_id' => 1,
+            ]);
+
+            session()->flash('message', 'A palavra foi inserida na BD.');
+
+            $this->reset(['text', 'language_code']);
+        } else {
+            session()->flash('message', 'A palavra já existe na BD.');
+        }
+    }
 }

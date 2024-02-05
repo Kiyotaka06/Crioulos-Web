@@ -22,11 +22,11 @@ Route::get('/', function () {
 Route::get('/words', function () {
     $words = Word::paginate(100);
     return view('words.index', compact(['words']));    
-});
+})->name('words');
 
 Route::get('/lexicon/create', function () {        
     return view('lexicon.create');    
-});
+})->name('create');
 
 Route::middleware([
     'auth:sanctum',
