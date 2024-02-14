@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Insert extends Component
 {
-    public $text;
+    public $text = '';
     public $language_code;
 
     public function render()
@@ -17,26 +17,56 @@ class Insert extends Component
 
     public function updated($field)
     {
+
+        if ($field === 'text') {
+            $this->text = trim($this->text);
+        }
+
         $this->validateOnly($field, [
             'text' => 'required|unique:words,text,NULL,id,language_code,' . $this->language_code,
             'language_code' => 'required|unique:words,language_code,NULL,id,text,' . $this->text,
         ]);
+
+        //$this->validateOnly($field, [
+        //    'text' => function ($attribute, $value, $fail) {
+        //        $text = explode(' ', $value);
+        //        if (count($text) > 1) {
+        //            $fail('Apenas uma palavra é permitida.');
+        //        }
+        //    },
+        //]);
     }
 
     public function submit()
     {
         $this->validate([
-            'text' => 'required|unique:words,text,NULL,id,language_code,' . $this->language_code,
-            'language_code' => 'required|unique:words,language_code,NULL,id,text,' . $this->text,
+            'text' => [
+                'required',
+                'unique:words,text,NULL,id,language_code,' . $this->language_code,
+                function ($attribute, $value, $fail) {
+                    $text = explode(' ', $value);
+                    if (count($text) > 1) {
+                        $fail('Apenas uma palavra é permitida.');
+                    }
+                },
+            ],
+            'language_code' => 'required|unique:words,language_code,NULL,id,text,' . trim($this->text)
+        ],[
+            'text.required' => 'É necessário escrever uma palavra.',
+            'language_code.required' => 'É necessário selecionar a linguagem da palavra.',
+            'text.unique' => 'A palavra "'. trim($this->text) . '" com o código de linguagem "'. $this->language_code .'" já existe.',
+            'language_code.unique' => ''
         ]);
 
-        $wordExists = Word::where('text', $this->text)
+        $trimmedText = trim($this->text);
+
+        $wordExists = Word::where('text', $trimmedText)
             ->where('language_code', $this->language_code)
             ->exists();
 
         if (!$wordExists) {
             Word::create([
-                'text' => $this->text,
+                'text' => $trimmedText,
                 'language_code' => $this->language_code,
                 'user_id' => 1,
             ]);

@@ -30,23 +30,23 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        Word::create([
-            'text' => 'hello',
-            'language_code' => 'en',
-            'user_id' => 1,
-        ]);
+        //Word::create([
+        //    'text' => 'hello',
+        //    'language_code' => 'en',
+        //    'user_id' => 1,
+        //]);
 
-        Word::create([
-            'text' => 'world',
-            'language_code' => 'en',
-            'user_id' => 1,
-        ]);
+        //Word::create([
+        //    'text' => 'world',
+        //    'language_code' => 'en',
+        //    'user_id' => 1,
+        //]);
 
-        Word::create([
-            'text' => 'hola',
-            'language_code' => 'es',
-            'user_id' => 1,
-        ]);
+        //Word::create([
+        //    'text' => 'hola',
+        //    'language_code' => 'es',
+        //    'user_id' => 1,
+        //]);
 
         //$unique_words = Import::importWordsFromFile('./csv/palavras.txt');
         //Import::insertIntoDB($unique_words);
