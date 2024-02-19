@@ -9,6 +9,8 @@ class Insert extends Component
 {
     public $text = '';
     public $language_code;
+    public $pattern = '/[!@#$%^&*(),.?":{}|<>º\]]/';
+    
 
     public function render()
     {
@@ -44,12 +46,18 @@ class Insert extends Component
                 'required',
                 'unique:words,text,NULL,id,language_code,' . $this->language_code,
                 function ($attribute, $value, $fail) {
-                    $text = explode(' ', $value);
-                    if (count($text) > 1) {
+                    $words = explode(' ', $value);
+                    if (count($words) > 1) {
                         $fail('Apenas uma palavra é permitida.');
+                    }
+                    foreach ($words as $word) {
+                        if(preg_match($this->pattern, $word)){
+                            $fail('Não é permitido carácteres especiais.');
+                        }
                     }
                 },
             ],
+
             'language_code' => 'required|unique:words,language_code,NULL,id,text,' . trim($this->text)
         ],[
             'text.required' => 'É necessário escrever uma palavra.',
