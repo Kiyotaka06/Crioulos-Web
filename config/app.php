@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        MarkSitko\LaravelUnsplash\UnsplashServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -184,7 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Unsplash' => MarkSitko\LaravelUnsplash\Facades\Unsplash::class,
     ])->toArray(),
 
 ];

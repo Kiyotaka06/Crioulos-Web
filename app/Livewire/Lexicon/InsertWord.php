@@ -5,16 +5,16 @@ namespace App\Livewire\Lexicon;
 use App\Models\Word;
 use Livewire\Component;
 
-class Insert extends Component
+class InsertWord extends Component
 {
     public $text = '';
     public $language_code;
-    public $pattern = '/[!@#$%^&*(),.?":{}|<>º\]]/';
-    
+    public $pattern = '/[!@#$%^&*+`´¹£§½¬~«»_;(),.?":{}|<>º\]]/';
+
 
     public function render()
     {
-        return view('livewire.lexicon.insert');
+        return view('livewire.lexicon.insert-word');
     }
 
     public function updated($field)
@@ -28,18 +28,10 @@ class Insert extends Component
             'text' => 'required|unique:words,text,NULL,id,language_code,' . $this->language_code,
             'language_code' => 'required|unique:words,language_code,NULL,id,text,' . $this->text,
         ]);
-
-        //$this->validateOnly($field, [
-        //    'text' => function ($attribute, $value, $fail) {
-        //        $text = explode(' ', $value);
-        //        if (count($text) > 1) {
-        //            $fail('Apenas uma palavra é permitida.');
-        //        }
-        //    },
-        //]);
     }
 
-    public function submit()
+    // Insert Words
+    public function insert()
     {
         $this->validate([
             'text' => [
@@ -51,18 +43,17 @@ class Insert extends Component
                         $fail('Apenas uma palavra é permitida.');
                     }
                     foreach ($words as $word) {
-                        if(preg_match($this->pattern, $word)){
+                        if (preg_match($this->pattern, $word)) {
                             $fail('Não é permitido carácteres especiais.');
                         }
                     }
                 },
             ],
-
             'language_code' => 'required|unique:words,language_code,NULL,id,text,' . trim($this->text)
-        ],[
+        ], [
             'text.required' => 'É necessário escrever uma palavra.',
             'language_code.required' => 'É necessário selecionar a linguagem da palavra.',
-            'text.unique' => 'A palavra "'. trim($this->text) . '" com o código de linguagem "'. $this->language_code .'" já existe.',
+            'text.unique' => 'A palavra "' . trim($this->text) . '" com o código de linguagem "' . $this->language_code . '" já existe.',
             'language_code.unique' => ''
         ]);
 
@@ -74,7 +65,7 @@ class Insert extends Component
 
         if (!$wordExists) {
             Word::create([
-                'text' => $trimmedText,
+                'text' => strtolower($trimmedText),
                 'language_code' => $this->language_code,
                 'user_id' => 1,
             ]);
@@ -82,8 +73,6 @@ class Insert extends Component
             session()->flash('message', 'A palavra foi inserida na BD.');
 
             $this->reset(['text', 'language_code']);
-        } else {
-            session()->flash('message', 'A palavra já existe na BD.');
         }
     }
 }

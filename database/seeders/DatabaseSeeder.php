@@ -31,20 +31,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Word::create([
-        //    'text' => 'hello',
-        //    'language_code' => 'en',
-        //    'user_id' => 1,
-        //]);
-
-        //Word::create([
-        //    'text' => 'world',
-        //    'language_code' => 'en',
-        //    'user_id' => 1,
-        //]);
-
-        //Word::create([
-        //    'text' => 'hola',
-        //    'language_code' => 'es',
+        //    'text' => 'olá',
+        //    'language_code' => 'por',
         //    'user_id' => 1,
         //]);
 
