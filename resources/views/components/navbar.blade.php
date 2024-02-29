@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between flex-wrap bg-white py-2 mb-8 lg:px-12 shadow-md">
+<nav class="flex items-center justify-between flex-wrap bg-white py-2 mb-2 lg:px-12 shadow-md">
     <div class="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
         <div class="text-gray-800 mr-16">
             <a class="flex flex-shrink-0 items-center gap-2" href="{{ route('welcome') }}">
@@ -18,14 +18,14 @@
 
     <div class="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
         <div class="text-md font-bold text-amber-700 lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                História
+            <a href="{{ route('history') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                History
             </a>
-            <a href="#responsive-header" class=" block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                Tradução
+            <a href="{{ route('translation') }}" class=" block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                Translation
             </a>
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                Sobre
+            <a href="{{ route('credits') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                Credits
             </a>
         </div>
         <!-- This is an example component -->
