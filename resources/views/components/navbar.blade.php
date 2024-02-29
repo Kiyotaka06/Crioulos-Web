@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between flex-wrap bg-white py-2 mb-8 lg:px-12 shadow-md">
+<nav class="flex items-center justify-between flex-wrap bg-white py-2 lg:px-12 shadow-md">
     <div class="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
         <div class="text-gray-800 mr-16">
             <a class="flex flex-shrink-0 items-center gap-2" href="{{ route('welcome') }}">
@@ -38,8 +38,8 @@
             </button>
         </div>
         <div class="flex">
-            <a href="#" class="block text-md px-4 py-2 rounded text-amber-700 ml-2 font-bold hov border-2 border-white hover:text-white mt-4 hover:bg-amber-700 hover:border-amber-700 lg:mt-0">Iniciar Sessão</a>
-            <a href="#" class=" block text-md px-4  ml-2 py-2 rounded text-white bg-amber-700 border-2 border-amber-700 font-bold hover:text-amber-700 mt-4 hover:bg-white  lg:mt-0">Criar Conta</a>
+            <a href="{{ route('login') }}" class="block text-md px-4 py-2 rounded text-amber-700 ml-2 font-bold hov border-2 border-white hover:text-white mt-4 hover:bg-amber-700 hover:border-amber-700 lg:mt-0">Iniciar Sessão</a>
+            <a href="{{ route('register') }}" class=" block text-md px-4  ml-2 py-2 rounded text-white bg-amber-700 border-2 border-amber-700 font-bold hover:text-amber-700 mt-4 hover:bg-white  lg:mt-0">Criar Conta</a>
         </div>
     </div>
 </nav>

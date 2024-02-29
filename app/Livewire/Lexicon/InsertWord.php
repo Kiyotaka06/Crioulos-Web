@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Lexicon;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Word;
 use Livewire\Component;
 
@@ -33,6 +34,8 @@ class InsertWord extends Component
     // Insert Words
     public function insert()
     {
+        $userId = Auth::id();
+
         $this->validate([
             'text' => [
                 'required',
@@ -67,7 +70,7 @@ class InsertWord extends Component
             Word::create([
                 'text' => strtolower($trimmedText),
                 'language_code' => $this->language_code,
-                'user_id' => 1,
+                'user_id' => $userId,
             ]);
 
             session()->flash('message', 'A palavra foi inserida na BD.');

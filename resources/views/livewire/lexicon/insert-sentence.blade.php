@@ -21,7 +21,7 @@
         <a href="{{ route('welcome') }}">
             <button class="bg-blue-400 rounded-md p-4">Voltar</button>
         </a>
-        <button class="bg-green-700 rounded p-4 text-white" type="submit" wire:click.prevent="insert">Inserir frase</button>
+        <button class="bg-green-700 rounded p-4 text-white" type="submit" wire:click.prevent="insert">Inserir</button>
     </div>
     <div class="text-center mt-2">
         @if (session()->has('message'))

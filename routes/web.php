@@ -28,6 +28,10 @@ Route::get('/lexicon/create', function () {
     return view('lexicon.create');    
 })->name('create');
 
+Route::get('/dictionary', function(){
+    return view('dictionary');
+})->name('dictionary');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
