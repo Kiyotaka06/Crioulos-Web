@@ -9,4 +9,4 @@
         </div>
         {{ $words->links() }}
     </div>
-</x-guestLayout>
+</x-guestLayout>    

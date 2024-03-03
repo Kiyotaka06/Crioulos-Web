@@ -18,14 +18,14 @@
 
     <div class="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">
         <div class="text-md font-bold text-amber-700 lg:flex-grow">
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                História
+            <a href="{{ route('history') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                History
             </a>
-            <a href="#responsive-header" class=" block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                Tradução
+            <a href="{{ route('translation') }}" class=" block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                Translation
             </a>
-            <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
-                Sobre
+            <a href="{{ route('credits') }}" class="block mt-4 lg:inline-block lg:mt-0 hover:text-white border-2 border-white px-4 py-2 rounded hover:bg-amber-700 hover:border-amber-700 mr-2">
+                Credits
             </a>
         </div>
         <!-- This is an example component -->
