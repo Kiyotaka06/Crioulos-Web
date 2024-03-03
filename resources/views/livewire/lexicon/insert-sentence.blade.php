@@ -18,10 +18,10 @@
         @enderror
     </div>
     <div class="flex justify-center space-x-2">
-        <a href="{{ route('welcome') }}">
+        <a href="{{ route('dictionary') }}">
             <button class="bg-blue-400 rounded-md p-4">Voltar</button>
         </a>
-        <button class="bg-green-700 rounded p-4 text-white" type="submit" wire:click.prevent="insert">Inserir</button>
+        <button class="bg-green-700 rounded p-4 text-white" type="submit" wire:click.prevent="insert">Adicionar</button>
     </div>
     <div class="text-center mt-2">
         @if (session()->has('message'))

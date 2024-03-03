@@ -19,6 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/translation', function () {
+    return view('translation');
+})->name('translation');
+
+Route::get('/history', function () {
+    return view('history');
+})->name('history');
+
+Route::get('/credits', function () {
+    return view('credits');
+})->name('credits');
+
 Route::get('/words', function () {
     $words = Word::paginate(100);
     return view('words.index', compact(['words']));    

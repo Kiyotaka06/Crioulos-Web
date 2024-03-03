@@ -1,4 +1,4 @@
-<footer class="px-4 pt-8 md:px-12 lg:px-24 mt-8 border-t">
+<footer class="px-4 pt-8 md:px-12 lg:px-24 border-t">
   <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
     <div class="sm:col-span-2">
       <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div>
-      <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
+      <span class="text-base font-bold tracking-wide text-gray-900">Socials</span>
       <div class="flex items-center mt-1 space-x-3">
         <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
           <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">

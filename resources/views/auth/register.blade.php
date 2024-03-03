@@ -10,6 +10,10 @@
             @csrf
 
             <div>
+                <h1 class="text-center mt-1">Criar Conta</h1>
+            </div>
+
+            <div>
                 <x-label for="name" value="{{ __('Nome') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
@@ -52,7 +56,7 @@
                 </a>
 
                 <x-button class="ms-4">
-                    {{ __('Registar') }}
+                    {{ __('Criar') }}
                 </x-button>
             </div>
         </form>
