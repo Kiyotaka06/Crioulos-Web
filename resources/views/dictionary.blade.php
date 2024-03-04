@@ -55,7 +55,7 @@
                         </a>
                     </div>
                     <div class="flex flex-col space-y-1">
-                        <p class="text-red-600 ">É necessário conta para conseguir adicionar algo ao dicionário!</p>
+                        <p class="text-red-600 ">É necessário ter uma conta para conseguir adicionar algo ao dicionário!</p>
                         <div class="grid grid-cols-2 mx-6 sm:mx-auto gap-2">
                             <a href="{{ route('login') }}">
                                 <x-button class="w-full">

@@ -10,7 +10,7 @@
             @csrf
 
             <div>
-                <h1 class="text-center mt-1">Criar Conta</h1>
+                <h1 class="text-center mt-2">Criar Conta</h1>
             </div>
 
             <div>

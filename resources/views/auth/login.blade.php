@@ -16,6 +16,10 @@
             @csrf
 
             <div>
+                <h1 class="text-center mt-2">Iniciar Sessão</h1>
+            </div>
+
+            <div>
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             </div>
@@ -32,7 +36,11 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end space-x-4 mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                    {{ __('Ainda não tem uma conta?') }}
+                </a>
+
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                         {{ __('Esqueceu-se da password?') }}
@@ -40,7 +48,7 @@
                 @endif
 
                 <x-button class="ms-4">
-                    {{ __('Entrar') }}
+                    {{ __('Iniciar Sessão') }}
                 </x-button>
             </div>
         </form>

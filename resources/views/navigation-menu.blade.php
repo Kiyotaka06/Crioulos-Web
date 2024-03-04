@@ -29,12 +29,12 @@
                         {{ __('Dicionário') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
+                    <!--<x-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
                         {{ __('Tradução') }}
-                    </x-nav-link>
+                    </x-nav-link>-->
 
                     <x-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
-                        {{ __('Agradecimetos') }}
+                        {{ __('Sobre Nós') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -154,11 +154,11 @@
                             </form>
                             @else
                             <x-dropdown-link href="{{ route('login') }}">
-                                {{ __('Login') }}
+                                {{ __('Iniciar Sessão') }}
                             </x-dropdown-link>
 
                             <x-dropdown-link href="{{ route('register') }}">
-                                {{ __('Register') }}
+                                {{ __('Criar Conta') }}
                             </x-dropdown-link>
                             @endif
                         </x-slot>
@@ -181,16 +181,20 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('history')">
+            <x-responsive-nav-link href="{{ route('history') }}" :active="request()->routeIs('history')">
                 {{ __('História') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('translation')">
-                {{ __('Tradução') }}
+            <x-responsive-nav-link href="{{ route('dictionary') }}" :active="request()->routeIs('dictionary')">
+                {{ __('Dicionário') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('credits')">
-                {{ __('Agradecimentos') }}
+            <!--<x-responsive-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
+                {{ __('Tradução') }}
+            </x-responsive-nav-link>-->
+
+            <x-responsive-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
+                {{ __('Sobre Nós') }}
             </x-responsive-nav-link>
         </div>
 
@@ -215,7 +219,7 @@
                 @if (Auth::check())
                 <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Options') }}
+                    {{ __('Definições') }}
                 </x-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -267,11 +271,11 @@
                 @endif
                 @else
                 <x-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
+                    {{ __('Iniciar Sessão') }}
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    {{ __('Register') }}
+                    {{ __('Criar Conta') }}
                 </x-responsive-nav-link>
                 @endif
             </div>

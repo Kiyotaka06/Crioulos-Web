@@ -9,7 +9,7 @@
     <div class="my-4 text-center">
         <h2>Código de linguagem</h2>
         <select class="rounded-md" name="lang_code_select" wire:model="language_code">
-            <option value="">Selecione a linguagem da frase</option>
+            <option value="">Selecione a linguagem</option>
             <option value="por">Português - por</option>
             <option value="pov">Crioulo - pov</option>
         </select>
