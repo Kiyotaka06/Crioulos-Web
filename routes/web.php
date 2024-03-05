@@ -23,9 +23,13 @@ Route::get('/translation', function () {
     return view('translation');
 })->name('translation');
 
-Route::get('/history', function () {
-    return view('history');
-})->name('history');
+Route::get('/history/origins', function () {
+    return view('history.origins');
+})->name('history-origins');
+
+Route::get('/history/notion', function () {
+    return view('history.notion');
+})->name('history-notion');
 
 Route::get('/credits', function () {
     return view('credits');
