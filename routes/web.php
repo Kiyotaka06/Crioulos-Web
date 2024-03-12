@@ -3,6 +3,7 @@
 use App\Import;
 use App\Models\Word;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UnsplashController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/unsplash', [UnsplashController::class, 'showRandomPhoto'
+])->name('unsplash');
+
 
 Route::get('/translation', function () {
     return view('translation');

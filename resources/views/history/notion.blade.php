@@ -22,7 +22,7 @@
             </div>
 
             <div class="flex flex-col items-center space-y-2">
-                <img class="rounded-xl drop-shadow-md" src="/imgs/" alt="">
+                <img class="rounded-xl drop-shadow-md" src="/imgs/historia_img3.png" alt="">
             </div>
         </div>
     </div>

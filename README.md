@@ -26,3 +26,9 @@
     - Sempre em minúscula?
 
 
+## Unsplash
+
+- Arranjar forma de ler o accesskey do env;
+- Criar livewire component para o input da imagem para ler e mandar para a bd.
+- Adicionar toggle para a descrição para ajudar o utilizador a identificar a imagem ou limitar que imagens aparecem.
+- Ao adicionar o input, remover imagem da api?

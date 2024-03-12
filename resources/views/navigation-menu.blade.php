@@ -56,6 +56,10 @@
                     <x-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
                         {{ __('Sobre Nós') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('unsplash') }}" :active="request()->routeIs('unsplash')">
+                        {{ __('Unsplash') }}
+                    </x-nav-link>
                 </div>
             </div>
 
