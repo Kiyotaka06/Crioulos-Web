@@ -19,7 +19,7 @@ class UnsplashService
     public function getRandomPhoto()
     {
         try {
-            $response = $this->httpClient->get("https://api.unsplash.com/photos/random?client_id=uaVFE1OHCiRZEt0pSwr6owb6uUJwoqfya3ug09T8taw");
+            $response = $this->httpClient->get("https://api.unsplash.com/photos/random?client_id=$this->accessKey");
             $photoData = json_decode($response->getBody(), true);
     
             // Extract the regular image URL
