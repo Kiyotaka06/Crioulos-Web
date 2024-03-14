@@ -21,7 +21,7 @@ class UnsplashController extends Controller
 
     public function showRandomPhoto()
     {
-        $photo = $this->unsplashService->getRandomPhoto();
+        $photo = $this->unsplashService->getRandomPhoto('animals');
 
         return view('unsplash', ['photo' => $photo]);
     }

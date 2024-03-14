@@ -16,10 +16,17 @@ class UnsplashService
         $this->accessKey = Config::get('services.unsplash.access_key');
     }
 
-    public function getRandomPhoto()
+    public function getRandomPhoto($topic = null)
     {
         try {
-            $response = $this->httpClient->get("https://api.unsplash.com/photos/random?client_id=$this->accessKey");
+            $url = "https://api.unsplash.com/photos/random?client_id=$this->accessKey";
+            
+            // Add the topic query parameter if specified
+            if ($topic) {
+                $url .= "&query=$topic";
+            }
+
+            $response = $this->httpClient->get($url);
             $photoData = json_decode($response->getBody(), true);
     
             // Extract the regular image URL
