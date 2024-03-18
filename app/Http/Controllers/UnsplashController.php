@@ -14,6 +14,8 @@ class UnsplashController extends Controller
 {
     protected $unsplashService;
 
+    public $unsplashSearch;
+
     public function __construct(UnsplashService $unsplashService)
     {
         $this->unsplashService = $unsplashService;
@@ -21,8 +23,8 @@ class UnsplashController extends Controller
 
     public function showRandomPhoto()
     {
-        $photo = $this->unsplashService->getRandomPhoto('animals');
+        $photo = $this->unsplashService->getRandomPhoto($this->unsplashSearch);
 
-        return view('unsplash', ['photo' => $photo]);
+        return view('unsplash', ['photo' => $photo, 'unsplashSearch' => $this->unsplashSearch]);
     }
 }
