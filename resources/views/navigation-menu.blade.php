@@ -5,36 +5,37 @@
             <div class="flex">
                 <!-- Logo -->
                 @if (Auth::check())
-                    <div class="shrink-0 flex items-center">
-                        <a class="flex items-center gap-2" href="{{ route('dashboard') }}">
-                            <x-application-mark class="block h-9 w-auto" />
-                            <span class="uppercase font-bold">Crioulos</span>
-                        </a>
-                    </div>
+                <div class="shrink-0 flex items-center">
+                    <a class="flex items-center gap-2" href="{{ route('dashboard') }}">
+                        <x-application-mark class="block h-9 w-auto" />
+                        <span class="uppercase font-bold">Crioulos</span>
+                    </a>
+                </div>
                 @else
-                    <div class="shrink-0 flex items-center">
-                        <a class="flex items-center gap-2" href="{{ route('welcome') }}">
-                            <x-application-mark class="block h-9 w-auto" />
-                            <span class="uppercase font-bold">Crioulos</span>
-                        </a>
-                    </div>
+                <div class="shrink-0 flex items-center">
+                    <a class="flex items-center gap-2" href="{{ route('welcome') }}">
+                        <x-application-mark class="block h-9 w-auto" />
+                        <span class="uppercase font-bold">Crioulos</span>
+                    </a>
+                </div>
                 @endif
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 items-center sm:-my-px sm:ml-10 sm:flex">
-                    <div class="ml-3 relative">
-                        <x-dropdown align="right" width="48">
-                            <x-slot name="trigger">
-                                <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                        História
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </button>
-                                </span>
-                            </x-slot>
+                @if (Auth::check())
+                    <div class="hidden space-x-8 items-center sm:-my-px sm:ml-10 sm:flex">
+                        <div class="ml-3 relative">
+                            <x-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <span class="inline-flex rounded-md">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            História
+                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </x-slot>
 
-                            <x-slot name="content">
+                                <x-slot name="content">
                                     <x-dropdown-link href="{{ route('history-origins') }}">
                                         {{ __('Origens') }}
                                     </x-dropdown-link>
@@ -42,25 +43,76 @@
                                     <x-dropdown-link href="{{ route('history-notion') }}">
                                         {{ __('Conceito') }}
                                     </x-dropdown-link>
-                            </x-slot>
-                        </x-dropdown>
+
+                                    <x-dropdown-link href="{{ route('history-types') }}">
+                                        {{ __('Definições') }}
+                                    </x-dropdown-link>
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                        <x-nav-link href="{{ route('dictionary') }}" :active="request()->routeIs('dictionary')">
+                            {{ __('Dicionário') }}
+                        </x-nav-link>
+
+                        <!--<x-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
+                            {{ __('Tradução') }}
+                        </x-nav-link>-->
+
+                        <x-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
+                            {{ __('Sobre Nós') }}
+                        </x-nav-link>
+
+                        <x-nav-link href="{{ route('unsplash') }}" :active="request()->routeIs('unsplash')">
+                            {{ __('Unsplash') }}
+                        </x-nav-link>
                     </div>
-                    <x-nav-link href="{{ route('dictionary') }}" :active="request()->routeIs('dictionary')">
-                        {{ __('Dicionário') }}
-                    </x-nav-link>
+                    @else
+                    <div class="hidden space-x-8 items-center sm:-my-px sm:ml-10 sm:flex">
+                        <div class="ml-3 relative">
+                            <x-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <span class="inline-flex rounded-md">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            História
+                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </x-slot>
 
-                    <!--<x-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
-                        {{ __('Tradução') }}
-                    </x-nav-link>-->
+                                <x-slot name="content">
+                                    <x-dropdown-link href="{{ route('history-origins') }}">
+                                        {{ __('Origens') }}
+                                    </x-dropdown-link>
 
-                    <x-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
-                        {{ __('Sobre Nós') }}
-                    </x-nav-link>
+                                    <x-dropdown-link href="{{ route('history-notion') }}">
+                                        {{ __('Conceito') }}
+                                    </x-dropdown-link>
 
-                    <x-nav-link href="{{ route('unsplash') }}" :active="request()->routeIs('unsplash')">
-                        {{ __('Unsplash') }}
-                    </x-nav-link>
-                </div>
+                                    <x-dropdown-link href="{{ route('history-types') }}">
+                                        {{ __('Definições') }}
+                                    </x-dropdown-link>
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                        <x-nav-link href="{{ route('dictionary') }}" :active="request()->routeIs('dictionary')">
+                            {{ __('Dicionário') }}
+                        </x-nav-link>
+
+                        <!--<x-nav-link href="{{ route('translation') }}" :active="request()->routeIs('translation')">
+                            {{ __('Tradução') }}
+                        </x-nav-link>-->
+
+                        <x-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
+                            {{ __('Sobre Nós') }}
+                        </x-nav-link>
+
+                        <!-- <x-nav-link href="{{ route('unsplash') }}" :active="request()->routeIs('unsplash')">
+                            {{ __('Unsplash') }}
+                        </x-nav-link> -->
+                    </div>
+                    @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -151,39 +203,39 @@
 
                         <x-slot name="content">
                             @if (Auth::check())
-                                <!-- Account Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Gestão da Conta') }}
-                                </div>
+                            <!-- Account Management -->
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Gestão da Conta') }}
+                            </div>
 
-                                <x-dropdown-link href="{{ route('profile.show') }}">
-                                    {{ __('Definições') }}
+                            <x-dropdown-link href="{{ route('profile.show') }}">
+                                {{ __('Definições') }}
+                            </x-dropdown-link>
+
+                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                            <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                {{ __('API Tokens') }}
+                            </x-dropdown-link>
+                            @endif
+
+                            <div class="border-t border-gray-200"></div>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                    {{ __('Terminar Sessão') }}
                                 </x-dropdown-link>
-
-                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                    <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                        {{ __('API Tokens') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                <div class="border-t border-gray-200"></div>
-
-                                <!-- Authentication -->
-                                <form method="POST" action="{{ route('logout') }}" x-data>
-                                    @csrf
-
-                                    <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                        {{ __('Terminar Sessão') }}
-                                    </x-dropdown-link>
-                                </form>
+                            </form>
                             @else
-                                <x-dropdown-link href="{{ route('login') }}">
-                                    {{ __('Iniciar Sessão') }}
-                                </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('login') }}">
+                                {{ __('Iniciar Sessão') }}
+                            </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('register') }}">
-                                    {{ __('Criar Conta') }}
-                                </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('register') }}">
+                                {{ __('Criar Conta') }}
+                            </x-dropdown-link>
                             @endif
                         </x-slot>
                     </x-dropdown>
@@ -220,6 +272,10 @@
             <x-responsive-nav-link href="{{ route('credits') }}" :active="request()->routeIs('credits')">
                 {{ __('Sobre Nós') }}
             </x-responsive-nav-link>
+
+            <x-nav-link href="{{ route('unsplash') }}" :active="request()->routeIs('unsplash')">
+                {{ __('Unsplash') }}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

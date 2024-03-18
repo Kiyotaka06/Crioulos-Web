@@ -4,6 +4,7 @@ use App\Import;
 use App\Models\Word;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnsplashController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,15 @@ use App\Http\Controllers\UnsplashController;
 |
 */
 
+Route::middleware('auth')->group(function () {
+
+    Route::get('/unsplash', [UnsplashController::class, 'showRandomPhoto'
+    ])->name('unsplash');
+});
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
-Route::get('/unsplash', [UnsplashController::class, 'showRandomPhoto'
-])->name('unsplash');
-
 
 Route::get('/translation', function () {
     return view('translation');
@@ -35,6 +38,10 @@ Route::get('/history/origins', function () {
 Route::get('/history/notion', function () {
     return view('history.notion');
 })->name('history-notion');
+
+Route::get('/history/types', function () {
+    return view('history.types');
+})->name('history-types');
 
 Route::get('/credits', function () {
     return view('credits');
