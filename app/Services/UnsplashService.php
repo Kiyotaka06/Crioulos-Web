@@ -21,7 +21,6 @@ class UnsplashService
         try {
             $url = "https://api.unsplash.com/photos/random?client_id=$this->accessKey";
             
-            // Add the topic query parameter if specified
             if ($topic) {
                 $url .= "&query=$topic";
             }
@@ -29,7 +28,6 @@ class UnsplashService
             $response = $this->httpClient->get($url);
             $photoData = json_decode($response->getBody(), true);
     
-            // Extract the regular image URL
             $imageUrl = $photoData['urls']['regular'];
     
             return [
