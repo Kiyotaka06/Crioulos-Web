@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/unsplash', [UnsplashController::class, 'showRandomPhoto'
+    Route::get('/unsplash', [UnsplashController::class, 'showPhoto'
     ])->name('unsplash');
 });
 

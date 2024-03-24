@@ -31,11 +31,12 @@ class UnsplashService
     
             // Extract the regular image URL
             $imageUrl = $photoData['urls']['regular'];
-    
+
+            
             return [
                 'id' => $photoData['id'],
                 'alt_description' => $photoData['alt_description'],
-                'image_url' => $imageUrl,
+                'image_url' => $imageUrl,   
             ];
         } catch (\Exception $e) {
             // Handle errors
