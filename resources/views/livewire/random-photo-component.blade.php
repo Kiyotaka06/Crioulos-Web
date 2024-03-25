@@ -8,11 +8,20 @@
             <option value="nature">Natureza</option>
             <option value="animals">Animais</option>
         </select>
-        <x-button wire:click="refreshPhoto">Refresh Photo</x-button>
+        <x-button wire:click="refreshPhoto">Atualizar Imagem</x-button>
     </div>
 
     <div class="flex flex-col justify-center mb-5 items-center">
         <img src="{{ $image_url }}" alt="{{ $alt_description }}" class="h-96 rounded-lg">
-        <p class="mt-4">{{ $alt_description }}</p>
+        <div class="flex items-center justify-center w-1/2 mx-auto gap-2 mt-4">
+            @if($showAltDescription)
+            <p class="">{{ $alt_description }}</p>
+            @else
+            <x-checkbox type="checkbox" wire:click="toggleAltDescription" /> <label>Mostrar descrição</label>
+            @endif
+        </div>
+
     </div>
+
+
 </div>

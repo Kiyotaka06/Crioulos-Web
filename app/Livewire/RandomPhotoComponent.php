@@ -10,11 +10,11 @@ class RandomPhotoComponent extends Component
 {
     public $image_url;
     public $alt_description;
-    public $topic; // Define the $topic property
+    public $topic; 
+    public $showAltDescription = false;
 
     public function mount()
     {
-        // Initialize image URL and alt description
         $this->refreshPhoto();
     }
 
@@ -31,6 +31,11 @@ class RandomPhotoComponent extends Component
     public function render()
     {
         return view('livewire.random-photo-component');
+    }
+
+    public function toggleAltDescription()
+    {
+        $this->showAltDescription = !$this->showAltDescription;
     }
 }
 
