@@ -1,4 +1,4 @@
-<div class="border flex flex-col justify-center space-y-4 rounded-md m-4 p-4">
+<div class="flex flex-col justify-center space-y-4 rounded-md m-4 p-4">
     <div class="grid grid-cols-2 gap-2 mx-auto">
         <x-button wire:click="showWordComponent">
             <p class="mx-auto">Adicionar Palavras</p>

@@ -2,6 +2,7 @@
 
 use App\Import;
 use App\Models\Word;
+use App\Models\Sentence;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnsplashController;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +52,11 @@ Route::get('/words', function () {
     $words = Word::paginate(100);
     return view('words.index', compact(['words']));    
 })->name('words');
+
+Route::get('/sentences', function () {
+    $sentences = Sentence::paginate(100);
+    return view('sentences.index', compact(['sentences']));    
+})->name('sentences');
 
 Route::get('/lexicon/create', function () {        
     return view('lexicon.create');    

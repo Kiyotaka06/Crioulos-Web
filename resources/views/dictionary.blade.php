@@ -3,22 +3,22 @@
         <h1 class="mb-0"><i class="uil uil-book-open mr-2"></i>Dicionário</h1>
         <p class="">Nesta página é possível ver e adicionar palavras, frases e textos no nosso dicionário.</p>
         <div class="flex flex-col space-y-4">
-            <div class="grid grid-rows-3 sm:grid-cols-3 sm:grid-rows-none mx-auto gap-2">
+            <div class="grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-none mx-auto gap-2">
                 <a href="{{ route('words') }}">
                     <x-button class="w-full">
                         <p class="mx-auto">Ver Palavras</p>
                     </x-button>
                 </a>
-                <a href="{{ route('words') }}">
+                <a href="{{ route('sentences') }}">
                     <x-button class="w-full">
                         <p class="mx-auto">Ver Frases</p>
                     </x-button>
                 </a>
-                <a href="{{ route('words') }}">
+                <!-- <a href="{{ route('sentences') }}">
                     <x-button class="w-full">
                         <p class="mx-auto">Ver Textos</p>
                     </x-button>
-                </a>
+                </a> -->
             </div>
             @if (Auth::check())
                 <div class="mx-auto">
