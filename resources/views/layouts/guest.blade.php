@@ -20,7 +20,7 @@
     </head>
     <body>
         @livewire('navigation-menu')
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans bg-gray-100 p-10 text-gray-900 antialiased">
             {{ $slot }}
         </div>
         <x-footer></x-footer>

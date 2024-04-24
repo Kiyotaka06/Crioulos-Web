@@ -1,7 +1,7 @@
 <x-guestLayout>
-    <div class="my-8">
+    <div class="w-3/4 flex flex-col mx-auto bg-white border drop-shadow-md rounded-md py-10 my-8">
         <a class="mb-2 font-bold text-5xl ml-8">Conceito de Crioulo</a>
-        <div class="grid grid-cols-4 gap-8 m-10 content-center text-lg">
+        <div class="grid grid-cols-4 gap-10 m-10 content-center text-lg">
             <div class="col-span-3 flex flex-col justify-center space-y-4">
                 <div class="text-justify space-y-1">
                     <p class="">A noção do <a class="font-bold">crioulo</a>, atualmente, refere-se àquilo que provém de países onde houve <a class="font-bold">escravatura negra</a>, ou no <a class="font-bold">dialecto</a> que resulta da evolução de uma língua a partir do contacto dos <a class="font-bold">povos autóctones</a> com os <a class="font-bold">colonizadores.</a></p>

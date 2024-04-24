@@ -1,1 +1,1 @@
-<img class="w-16" src="/logo/Basic_Logo_Light_Mode.png" alt="">
+<img class="h-16 w-auto" src="/logo/logo-text.png" alt="">

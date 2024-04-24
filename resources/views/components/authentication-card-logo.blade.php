@@ -1,3 +1,3 @@
 <a href="/">
-    <img class="w-80" src="/logo/Light_Mode-removebg.png" alt="">
+    <img class="w-80" src="/logo/logo-icon.png" alt="">
 </a>

@@ -1,9 +1,8 @@
 <footer class="px-4 pt-8 md:px-12 lg:px-24 border-t">
   <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
     <div class="sm:col-span-2">
-      <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-        <img class="h-20 w-20" src="/logo/Basic_Logo_Light_Mode.png" alt="">
-        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Crioulos</span>
+      <a href="/" aria-label="Go home" title="Crioulos" class="inline-flex items-center">
+        <img class="w-40" src="/logo/logo.png" alt="">
       </a>
       <div class="mt-6 lg:max-w-sm">
         <p class="text-sm text-gray-800">

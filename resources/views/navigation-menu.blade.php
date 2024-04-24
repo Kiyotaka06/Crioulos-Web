@@ -1,36 +1,37 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
+    <div class="max-w-7xl flex mx-auto justify-between px-4 sm:px-6 lg:px-8">
             <div class="flex">
                 <!-- Logo -->
                 @if (Auth::check())
-                <div class="shrink-0 flex items-center">
-                    <a class="flex items-center gap-2" href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                        <span class="uppercase font-bold">Crioulos</span>
+                <div class="shrink-0 flex items-center w-40">
+                    <a class="flex items-center" href="{{ route('dashboard') }}">
+                        <x-application-mark />
                     </a>
                 </div>
                 @else
                 <div class="shrink-0 flex items-center">
-                    <a class="flex items-center gap-2" href="{{ route('welcome') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                        <span class="uppercase font-bold">Crioulos</span>
+                    <a class="flex items-center" href="{{ route('welcome') }}">
+                        <x-application-mark />
                     </a>
                 </div>
                 @endif
+            </div>
+            <div class="flex">
                 <!-- Navigation Links -->
                 @if (Auth::check())
-                <div class="hidden space-x-8 items-center sm:-my-px sm:ml-10 sm:flex">
-                    <div class="ml-3 relative">
-                        <x-dropdown align="right" width="48">
+                <div class="hidden sm:-my-px sm:flex">
+                    <div class="relative">
+                        <x-nav-dropdown align="left" width="40">
                             <x-slot name="trigger">
-                                <x-nav-link class="hover:cursor-pointer" :active="request()->routeIs('history-origins', 'history-notion', 'history-types')">
-                                    História
-                                    <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                </x-nav-link>
+                                <span class="inline-flex rounded-md">
+                                    <x-nav-link class="hover:cursor-pointer" :active="request()->routeIs('history-origins', 'history-notion', 'history-types')">
+                                        História
+                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </x-nav-link>
+                                </span>
                             </x-slot>
 
                             <x-slot name="content">
@@ -66,9 +67,9 @@
 
                 </div>
                 @else
-                <div class="hidden space-x-8 items-center sm:-my-px sm:ml-10 sm:flex">
-                    <div class="ml-3 relative">
-                        <x-dropdown align="right" width="48">
+                <div class="hidden sm:-my-px sm:flex">
+                    <div class="relative">
+                        <x-nav-dropdown align="top" width="40">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded-md">
                                     <x-nav-link class="hover:cursor-pointer" :active="request()->routeIs('history-origins', 'history-notion', 'history-types')">
@@ -93,7 +94,7 @@
                                     {{ __('Definições') }}
                                 </x-dropdown-link>
                             </x-slot>
-                        </x-dropdown>
+                        </x-nav-dropdown>
                     </div>
                     <x-nav-link href="{{ route('dictionary') }}" :active="request()->routeIs('dictionary')">
                         {{ __('Dicionário') }}
@@ -106,10 +107,10 @@
                 @endif
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                <div class="ml-3 relative">
+                <div class="relative">
                     <x-dropdown align="right" width="60">
                         <x-slot name="trigger">
                             <span class="inline-flex rounded-md">
@@ -160,7 +161,7 @@
                 @endif
 
                 <!-- Settings Dropdown -->
-                <div class="ml-3 relative">
+                <div class="relative flex justify-center w-40">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Auth::check())
@@ -242,7 +243,6 @@
                     </svg>
                 </button>
             </div>
-        </div>
     </div>
 
     <!-- Responsive Navigation Menu -->

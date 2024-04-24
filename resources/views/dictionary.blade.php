@@ -1,5 +1,5 @@
 <x-guestLayout>
-    <div class="w-10/12 flex flex-col mx-auto space-y-6 my-8 text-center">
+    <div class="max-w-2xl flex flex-col mx-auto bg-white border drop-shadow-md rounded-md py-10 space-y-6 my-8 text-center">
         <h1 class="mb-0"><i class="uil uil-book-open mr-2"></i>Dicionário</h1>
         <p class="">Nesta página é possível ver e adicionar palavras, frases e textos no nosso dicionário.</p>
         <div class="flex flex-col space-y-4">
